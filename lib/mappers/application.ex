@@ -19,6 +19,22 @@ defmodule Mappers.Application do
       # {Mappers.Worker, arg}
     ]
 
+    :ok = :telemetry.attach(
+    # unique handler id
+    "ingest-h3-res9-new-count",
+    [:ingest, :h3, :res9, :new],
+    &MappersWeb.Telemetry.Metrics.handle_event_h3_res9_new/4,
+    nil
+    )
+
+    :ok = :telemetry.attach(
+    # unique handler id
+    "ingest-h3-res9-existing-count",
+    [:ingest, :h3, :res9, :existing],
+    &MappersWeb.Telemetry.Metrics.handle_event_h3_res9_existing/4,
+    nil
+    )
+
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Mappers.Supervisor]

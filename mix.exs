@@ -5,7 +5,7 @@ defmodule Mappers.MixProject do
     [
       app: :mappers,
       version: "0.1.0",
-      elixir: "~> 1.7",
+      elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -45,8 +45,15 @@ defmodule Mappers.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:h3, github: "helium/erlang-h3"},
-      {:geo_postgis, github: "bryanjos/geo_postgis"}
+      {:h3, github: "helium/erlang-h3", branch: "master"},
+      {:geo_postgis, github: "bryanjos/geo_postgis"},
+      {:uuid, "~> 1.1"},
+      {:nimble_csv, "~> 1.0"},
+      {:geocalc, "~> 0.5"},
+      {:telemetry_metrics_prometheus_core, "~> 1.0.0"},
+      {:appsignal_phoenix, "~> 2.0.0"},
+      {:corsica, "~> 1.1.3"},
+      {:math, "~> 0.6.0"}
     ]
   end
 
